@@ -10,8 +10,9 @@
   --underline-color: #7f8ff4;
 }
 
-/* root */
-body {
+/* Body */
+[data-testid="stAppViewContainer"] {
+  background: var(--background) center/cover;
   background: linear-gradient(to right, #7f8ff4, #5b6ff5);
   color: var(--text);
   font: 1rem "PT Sans", sans-serif;
@@ -23,56 +24,11 @@ body {
   overflow: hidden;
 }
 
-a {
-  color: inherit;
+[data-testid="stHeader"] {
+  z-index: -99;
 }
 
-a:hover {
-  color: var(--button-bg-color);
-}
-
-/* background container */
-.background-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 20px;
-}
-
-/* logo */
-.logo {
-  font-size: 2rem;
-  margin: 0;
-  padding: 0;
-  color: var(--underline-color);
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: 2px;
-  color: white;
-}
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background-color: var(--underline-color);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* helper */
-.container {
+[class="main st-emotion-cache-uf99v8 ea3mdgi8"] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,50 +38,55 @@ a:hover {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  height: 90%;
-  width: 95%;
+  height: 99%;
+  width: 99.5%;
   animation: glow 2s infinite alternate, fadeIn 1s ease-out;
+  animation: fadeIn 1s ease-out, scaleIn 0.5s ease-out;
 }
 
-.uppercase {
-  text-transform: uppercase;
+/* Logo */
+[id="phishguard"] {
+  font-size: 2rem;
+  color: var(--underline-color);
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  color: white;
+  margin-top: -250px;
+  margin-left: -400px;
+  position: relative;
 }
 
-/* button */
-.btn {
-  display: inline-block;
-  background: transparent;
-  color: inherit;
+[id="phishguard"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 14px;
+  width: 16%;
+  height: 2px;
+  background-color: var(--underline-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+[id="phishguard"]:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+[data-testid="textInputRootElement"] {
+  border-color: #5b6ff5;
+  background: var(--input-bg-color);
+  color: var(--underline-color);
   font: inherit;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
-  padding: 0;
-  transition: all 200ms ease-in;
-  cursor: pointer;
+  height: 55px;
 }
 
-.btn--primary {
-  background: var(--button-bg-color);
-  color: var(--button-text-color);
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  padding: 12px 36px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn--primary:hover {
-  background: #5b6ff5;
-  transform: scale(1.05);
-}
-
-.btn--primary:active {
-  background: var(--button-bg-color);
-  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* form */
-.form__field {
-  width: 860px;
+[aria-label] {
   background: var(--input-bg-color);
   color: var(--underline-color);
   font: inherit;
@@ -135,19 +96,95 @@ a:hover {
   padding: 22px 18px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 200ms ease-in;
+  width: 100%;
 }
 
-.form__field:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(95, 99, 255, 0.4);
-}
-
-/* header */
-h1 {
-  margin-bottom: 20px;
+[id="phishing-website-checker"] {
+  /* margin-bottom: -10px; */
   font-size: 2rem;
   text-align: center;
   color: #5b6ff5;
+}
+
+[id="phishing-website-checker"]:hover {
+  color: var(--underline-color);
+}
+
+[data-testid="baseButton-secondary"] {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+[data-testid="baseButton-secondary"]:hover {
+  background: darken(var(--button-bg-color), 4%);
+  color: #fff;
+  background: #5b6ff5;
+  transform: scale(1.05);
+}
+
+[data-testid="baseButton-secondary"]:active {
+  background: darken(var(--button-bg-color), 8%);
+  transform: scale(1);
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-testid="baseButton-secondary"]:focus {
+  outline: 0;
+}
+
+[data-testid="baseButton-secondary"] {
+  margin-left: 295px;
+}
+
+/* div > div > div > p {
+  color: red;
+  background-color: violet;
+} */
+/* [role="alert"] {
+  background-color: red;
+} */
+
+[role="alert"] {
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* CSS for safe prediction */
+[role="alert"][data-type="safe"] {
+  display: block;
+  background-color: #ccffcc;
+  color: #009900;
+}
+
+/* CSS for unsafe prediction */
+[role="alert"][data-type="unsafe"] {
+  display: block;
+  background-color: #ffcccc;
+  color: #cc0000;
+}
+
+/* CSS for invalid URL */
+[role="alert"][data-type="invalid"] {
+  display: block;
+  background-color: #ffffcc;
+  color: #999900;
 }
 
 /* fade-in animation */
