@@ -1,164 +1,71 @@
-/* variables */
-:root {
-  --text: #9c9c9c;
-  --input-bg-color: #fff;
-  --input-text-color: #a3a3a3;
-  --button-bg-color: #7f8ff4;
-  --button-text-color: #fff;
-  --box-shadow-color: rgba(0, 0, 0, 0.1);
-  --glow-color: #7f8ff4;
-  --underline-color: #7f8ff4;
-}
-
-/* Body */
-[data-testid="stAppViewContainer"] {
-  background: var(--background) center/cover;
-  background: linear-gradient(to right, #7f8ff4, #5b6ff5);
-  color: var(--text);
-  font: 1rem "PT Sans", sans-serif;
+/* body */
+[data-testid="stAppViewContainer"] > .main {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
+  align-items: center;
 }
 
+/* Header */
 [data-testid="stHeader"] {
   z-index: -99;
 }
 
-[class="main st-emotion-cache-uf99v8 ea3mdgi8"] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px var(--box-shadow-color);
-  padding: 33px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  height: 99%;
-  width: 99.5%;
-  animation: glow 2s infinite alternate, fadeIn 1s ease-out;
-  animation: fadeIn 1s ease-out, scaleIn 0.5s ease-out;
-}
-
-/* Logo */
-[id="phishguard"] {
-  font-size: 2rem;
-  color: var(--underline-color);
-  z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  color: #6d7ff5;
+  text-shadow: 2px 2px 4px rgba(106, 194, 225, 0.1);
   letter-spacing: 2px;
-  color: white;
-  margin-top: -250px;
-  margin-left: -400px;
   position: relative;
 }
 
-[id="phishguard"]::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 14px;
-  width: 16%;
-  height: 2px;
-  background-color: var(--underline-color);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-in-out;
+p {
+  font-size: 1.5rem;
+  color: #6d7ff5;
+  text-shadow: 2px 2px 4px rgba(106, 194, 225, 0.1);
+  letter-spacing: 2px;
+  position: relative;
+  /* Add the following lines */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-[id="phishguard"]:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-[data-testid="textInputRootElement"] {
-  border-color: #5b6ff5;
-  background: var(--input-bg-color);
-  color: var(--underline-color);
-  font: inherit;
+/* input field */
+[data-baseweb="base-input"] {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border: 1px solid #99ccff;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
-  height: 55px;
+  padding: 3px;
 }
 
+/* inside the input field */
 [aria-label] {
-  background: var(--input-bg-color);
-  color: var(--underline-color);
+  color: #7f8ff4;
   font: inherit;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
-  padding: 22px 18px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 200ms ease-in;
-  width: 100%;
 }
 
-[id="phishing-website-checker"] {
-  /* margin-bottom: -10px; */
-  font-size: 2rem;
-  text-align: center;
-  color: #5b6ff5;
-}
+/* CSS for elements with role="alert" */
 
-[id="phishing-website-checker"]:hover {
-  color: var(--underline-color);
-}
-
-[data-testid="baseButton-secondary"] {
-  display: inline-block;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  border: 0;
-  outline: 0;
-  padding: 0;
-  transition: all 200ms ease-in;
-  cursor: pointer;
-
-  background: var(--button-bg-color);
-  color: var(--button-text-color);
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-  padding: 12px 36px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-[data-testid="baseButton-secondary"]:hover {
-  background: darken(var(--button-bg-color), 4%);
-  color: #fff;
-  background: #5b6ff5;
-  transform: scale(1.05);
-}
-
-[data-testid="baseButton-secondary"]:active {
-  background: darken(var(--button-bg-color), 8%);
-  transform: scale(1);
-  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
-}
-
-[data-testid="baseButton-secondary"]:focus {
-  outline: 0;
-}
-
-[data-testid="baseButton-secondary"] {
-  margin-left: 295px;
-}
-
-/* div > div > div > p {
-  color: red;
-  background-color: violet;
-} */
-/* [role="alert"] {
-  background-color: red;
-} */
-
+/* Default style for alert messages */
 [role="alert"] {
   display: none;
   padding: 10px;
@@ -186,6 +93,33 @@
   background-color: #ffffcc;
   color: #999900;
 }
+
+/* Input field styling */
+[data-testid="textInputRootElement"] {
+  border-radius: 5px;
+  border: 1px solid #99ccff; /* Light blue border */
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+}
+
+/* Button styling */
+.stButton > button {
+  background-color: #66b3ff; /* Medium blue tone for button background */
+  color: #ffffff; /* White text */
+  border-radius: 5px;
+  border: none;
+  padding: -5px -5px;
+  cursor: pointer;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+.stButton > button:hover {
+  background-color: #3399ff; /* Darker blue tone on hover */
+}
+
 
 /* fade-in animation */
 @keyframes fadeIn {
