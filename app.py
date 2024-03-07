@@ -10,6 +10,14 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # Add CSS styles
 def local_css(file_path):
     with open(file_path) as f:
