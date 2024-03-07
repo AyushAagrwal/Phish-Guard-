@@ -1,5 +1,5 @@
 import streamlit as st
-from functions import FeatureExtraction, predict
+from function import FeatureExtraction, predict
 
 def main():
     st.title('Phishing Website Detector')
