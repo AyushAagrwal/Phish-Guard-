@@ -16,7 +16,7 @@ def local_css(file_path):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def main():
-    local_css("style2.css")
+    local_css("styles.css")
     st.title('Phishing Website Detector')
 
     url = st.text_input('Enter the URL:').strip()
